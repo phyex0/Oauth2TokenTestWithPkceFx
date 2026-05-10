@@ -18,8 +18,8 @@ public class PageOne extends BorderPane {
         // 1. Force a fresh cookie store for this instance
         CookieHandler.setDefault(new CookieManager());
 
-        CodeVerifier codeVerifier = AuthorizationCodePKCEUtil.getCodeVerifier();
-        CodeChallenge codeChallenge = AuthorizationCodePKCEUtil.getCodeChallenge(codeVerifier);
+        CodeVerifier codeVerifier = AuthorizationCodePKCEUtil.getCodeVerifierWithNimbus();
+        CodeChallenge codeChallenge = AuthorizationCodePKCEUtil.getCodeChallengeWithNimbus(codeVerifier);
 
         WebView webView = new WebView();
         WebEngine webEngine = webView.getEngine();
@@ -29,7 +29,7 @@ public class PageOne extends BorderPane {
                 String authCode = extractParam(newLocation, "code");
                 System.out.println("Captured Auth Code: " + authCode);
 
-                TokenResponse token = AuthorizationCodePKCEUtil.getToken(authCode, codeVerifier);
+                TokenResponse token = AuthorizationCodePKCEUtil.getTokenWithNimbus(authCode, codeVerifier);
 
                 if (token != null && token.indicatesSuccess()) {
                     // Use the SDK's built-in string conversion to avoid Jackson module issues

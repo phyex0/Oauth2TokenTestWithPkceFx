@@ -12,6 +12,7 @@ module com.phyex.oauth2tokentestwithpkcefx {
     requires com.almasb.fxgl.all;
     requires oauth2.oidc.sdk;
     requires com.fasterxml.jackson.databind;
+    requires java.net.http;
 
     opens com.phyex.oauth2tokentestwithpkcefx to javafx.fxml;
     exports com.phyex.oauth2tokentestwithpkcefx;
