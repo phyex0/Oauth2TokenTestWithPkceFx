@@ -5,14 +5,11 @@ module com.phyex.oauth2tokentestwithpkcefx {
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
-    requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
-    requires eu.hansolo.tilesfx;
-    requires com.almasb.fxgl.all;
     requires oauth2.oidc.sdk;
-    requires com.fasterxml.jackson.databind;
     requires java.net.http;
+    requires javafx.swing;
 
     opens com.phyex.oauth2tokentestwithpkcefx to javafx.fxml;
     exports com.phyex.oauth2tokentestwithpkcefx;
